@@ -1,16 +1,3 @@
-// import { useState } from 'react'
-// import Link from 'next/link'
-// import Head from 'next/head'
-// import { useShoppingCart } from '@/hooks/use-shopping-cart'
-// import axios from 'axios'
-// import { formatCurrency } from '@/lib/utils'
-// import getStripe from '@/lib/get-stripe'
-// import {
-//   XCircleIcon,
-//   XIcon,
-//   MinusSmIcon,
-//   PlusSmIcon,
-// } from '@heroicons/react/outline'
 'use client'
 
 import { useShoppingCart } from '@/hooks/use-shopping-cart'
@@ -22,9 +9,9 @@ import { useState } from 'react'
 import Image from 'next/image'
 import {
   MinusSmallIcon,
-  PlusSmIcon,
-  XIcon,
   XCircleIcon,
+  PlusSmallIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { formatCurrency } from '@/lib/utils'
 
@@ -38,7 +25,7 @@ const Cart = () => {
     const {
       data: { id },
     } = await axios.post('/api/checkout_sessions', {
-      items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
+      items: Object.entries(cartDetails).map(([{ id, quantity }]) => ({
         price: id,
         quantity,
       })),
@@ -122,13 +109,13 @@ const Cart = () => {
                       onClick={() => addItem(product)}
                       className="hover:bg-green-100 hover:text-green-500 rounded-md p-1"
                     >
-                      <PlusSmIcon className="w-6 h-6 flex-shrink-0 " />
+                      <PlusSmallIcon className="w-6 h-6 flex-shrink-0 " />
                     </button>
                   </div>
 
                   {/* Price */}
                   <p className="font-semibold text-xl ml-16">
-                    <XIcon className="w-4 h-4 text-gray-500 inline-block" />
+                    <XMarkIcon className="w-4 h-4 text-gray-500 inline-block" />
                     {formatCurrency(product.price)}
                   </p>
 

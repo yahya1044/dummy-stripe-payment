@@ -3,8 +3,6 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import Image from 'next/image'
 import Head from 'next/head'
-// import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline'
-
 import products from 'products'
 import { useShoppingCart } from '@/hooks/use-shopping-cart'
 import { formatCurrency } from '@/lib/utils'

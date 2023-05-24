@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useReducer, useRef } from 'react'
 import { isClient } from '@/lib/utils'
 

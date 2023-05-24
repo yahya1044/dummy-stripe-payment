@@ -78,8 +78,8 @@ const ProductCard = ({ product }) => {
 
         <button
           type="button"
-          onClick={(e) => console.log('eee', e)}
-          // disabled={adding || product.disabled}
+          onClick={handleOnAddToCart}
+          disabled={adding || product.disabled}
           className={`border rounded-lg py-1 px-4 hover:bg-rose-500 hover:border-rose-500 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
             adding
               ? 'disabled:bg-rose-500 disabled:border-rose-500 disabled:text-white'
