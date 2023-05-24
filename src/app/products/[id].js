@@ -5,8 +5,8 @@ import Image from 'next/image'
 import Head from 'next/head'
 import products from 'products'
 import { useShoppingCart } from '@/hooks/use-shopping-cart'
-import { formatCurrency } from '@/lib/utils'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { formatCurrency } from '@/lib/utils'
 
 const Product = (props) => {
   const router = useRouter()

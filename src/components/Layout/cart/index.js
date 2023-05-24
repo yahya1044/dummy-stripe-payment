@@ -18,7 +18,7 @@ import { formatCurrency } from '@/lib/utils'
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
     useShoppingCart()
-  const [redirecting, setRedirecting] = useState(false)
+  const [redirecting] = useState(false)
 
   const redirectToCheckout = async () => {
     // Create Stripe checkout

@@ -46,7 +46,7 @@ const removeItem = (state = {}, product = null, quantity = 0) => {
   if (entry) {
     // Remove item
     if (quantity >= entry.quantity) {
-      const { [product.id]: id, ...details } = state.cartDetails
+      const { ...details } = state.cartDetails
       return {
         ...state,
         cartDetails: details,

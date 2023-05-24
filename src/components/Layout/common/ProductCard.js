@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 import { useShoppingCart } from '@/hooks/use-shopping-cart'
-import { formatCurrency } from '@/lib/utils'
 import Rating from './Rating'
+import { formatCurrency } from '@/lib/utils'
 
 const ProductCard = ({ product }) => {
   const { cartCount, addItem } = useShoppingCart()
@@ -23,8 +23,8 @@ const ProductCard = ({ product }) => {
     setAdding(true)
     toastId.current = toast.loading('Adding 1 item...')
 
-    if (typeof product.onClickAdd === 'function') {
-      product.onClickAdd()
+    if (typeof product?.onClickAdd === 'function') {
+      product?.onClickAdd()
     }
 
     addItem(product)
@@ -38,13 +38,13 @@ const ProductCard = ({ product }) => {
 
     if (adding) {
       setAdding(false)
-      toast.success(`${product.name} added`, {
+      toast.success(`${product?.name} added`, {
         id: toastId.current,
       })
     }
 
-    if (typeof product.onAddEnded === 'function') {
-      product.onAddEnded()
+    if (typeof product?.onAddEnded === 'function') {
+      product?.onAddEnded()
     }
   }, [cartCount])
 
@@ -54,8 +54,8 @@ const ProductCard = ({ product }) => {
       {/* Product's image */}
       <div className="relative w-full h-64 group-hover:transform group-hover:scale-125 group-hover:ease-in-out group-hover:duration-500">
         <Image
-          src={product.image}
-          alt={product.name}
+          src={product?.image}
+          alt={product?.name}
           layout="fill"
           objectFit="contain"
         />
@@ -63,7 +63,7 @@ const ProductCard = ({ product }) => {
 
       {/* Name + Rating */}
       <div className="mt-4 sm:mt-8">
-        <p className="font-semibold text-lg capitalize">{product.name}</p>
+        <p className="font-semibold text-lg capitalize">{product?.name}</p>
         <Rating rate={product?.rating?.rate} count={product?.rating?.count} />
       </div>
 
@@ -72,14 +72,14 @@ const ProductCard = ({ product }) => {
         <div>
           <p className="text-gray-500">Price</p>
           <p className="text-lg font-semibold">
-            {formatCurrency(product.price, product.currency)}
+            {formatCurrency(product?.price, product?.currency)}
           </p>
         </div>
 
         <button
           type="button"
           onClick={handleOnAddToCart}
-          disabled={adding || product.disabled}
+          disabled={adding || product?.disabled}
           className={`border rounded-lg py-1 px-4 hover:bg-rose-500 hover:border-rose-500 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
             adding
               ? 'disabled:bg-rose-500 disabled:border-rose-500 disabled:text-white'
