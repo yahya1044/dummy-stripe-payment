@@ -1,3 +1,14 @@
-export { Hero } from './hero'
-export { About } from './about'
-export { Features } from './features'
+import { About } from './about'
+import { Features } from './features'
+import { Hero } from './hero'
+
+const HomePage = () => {
+  return (
+    <>
+      <Hero />
+      {/* <About />
+      <Features /> */}
+    </>
+  )
+}
+export default HomePage
